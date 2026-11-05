@@ -6,7 +6,7 @@ Find the mistakes in your object-detection and segmentation labels **before** tr
 
 ![Example report](docs/report.png)
 
-Open [`examples/demo_report_yolo.html`](examples/demo_report_yolo.html) in a browser to see a full report, generated from a small synthetic dataset with deliberate mistakes.
+**[Live demo report](https://therealclvn.github.io/labelcheck/examples/demo_report_yolo.html)**: open it to see a full report, generated from a small synthetic dataset with deliberate mistakes.
 
 ## Install
 
