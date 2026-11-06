@@ -94,7 +94,17 @@ Besides the unit tests and the synthetic demo, it was run on the public [coco128
 - 2 images have no label file and 2 label files have no image (`000000000250`, `000000000508` and `000000000656`, `000000000659`): a genuine mismatch in the dataset.
 - 3 "very small box" warnings are real annotations of tiny objects (for example a 1.9 x 2.8 px ball). They are correct findings but not necessarily mistakes: for small-object data such as aerial footage, lower the threshold with `--min-side 1` or turn the check off with `--min-side 0`.
 
-No false alarms were found on this dataset, but one 128-image subset is a small test. Please open an issue if you see a finding that looks wrong on your data.
+It was then run on five more public datasets that Ultralytics hosts as ready-made YOLO downloads (about 7,000 images in total). Every finding was checked by hand:
+
+| Dataset | Images | Annotations | Findings | Checked by hand |
+|---|---|---|---|---|
+| brain-tumor | 1,116 | 1,166 | 15 images without a label file | All 15 images visibly show the same kind of bright lesion that is boxed on neighbouring slices of the same scan (for example `00360_102` is labelled, `00360_108` to `00360_126` are not). A missing label file means "no object here" to YOLO, so these teach the model that a tumor is background. |
+| crack-seg (polygons) | 4,029 | 5,290 | 7 duplicate shapes, 1 very small box, 1 empty file | The 7 duplicates are the same crack traced twice, repeated across augmented copies of 3 source images. The very small box is a stray 9-point sliver lying on top of the main crack outline. The empty file belongs to an image with two clearly visible cracks. |
+| medical-pills | 115 | 2,022 | none | |
+| signature | 178 | 178 | none | |
+| african-wildlife | 1,504 | 2,685 | none | |
+
+No false alarms were found on these datasets, but they are still a limited test. Please open an issue if you see a finding that looks wrong on your data.
 
 ## Notes and limits
 
