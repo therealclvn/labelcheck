@@ -8,6 +8,8 @@ Find the mistakes in your object-detection and segmentation labels **before** tr
 
 **[Live demo report](https://therealclvn.github.io/labelcheck/examples/demo_report_yolo.html)**: open it to see a full report, generated from a small synthetic dataset with deliberate mistakes.
 
+Works well together with [labelprep](https://github.com/therealclvn/labelprep), which cuts videos into frames, converts YOLO <-> COCO, and splits train/val without leaking frames of the same video.
+
 ## Install
 
 ```bash
